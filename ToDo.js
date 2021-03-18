@@ -1,3 +1,5 @@
+const { createFile } = require('./model');
+
 const command = process.argv[2];
 const argument = process.argv[3];
 
@@ -35,13 +37,9 @@ Use: node ToDo [-c|-r|-u|-d] [dataTask]
 Use: node ToDo to list all tasks`)
 }
 
-
-function createFile() {
-    console.log(`If file 'tasks.json' doesn't exist it creates an empty one`);
-}
-
 function create(task) {
     console.log(`Creating task ${task}`);
+	setTask(task)
 }
 
 function readOneTask(task) {
@@ -59,4 +57,3 @@ function deleteTask(task) {
 function readAllTasks() {
     console.log(`Reading all tasks!!`);
 }
-
