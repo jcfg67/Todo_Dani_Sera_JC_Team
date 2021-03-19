@@ -1,22 +1,21 @@
-const { createFile } = require('./model');
+const parseObj = require('./util');
+const createTask = require('./createTask');
 
 const command = process.argv[2];
 const argument = process.argv[3];
 
-createFile();
-
 switch(command){
 	case '-c':
-		create(argument);
+		createTask(parseObj(argument));
 		break;
 	case '-r':
-		readOneTask(argument);
+		readOneTask(parseObj(argument));
 		break;
 	case '-u':
-		update(argument);
+		update(parseObj(argument));
 		break;
     case '-d':
-        deleteTask(argument);
+        deleteTask(parseObj(argument));
         break;
 	case 'help':
 		help();
@@ -32,14 +31,10 @@ switch(command){
 
 function help() {
     console.log(`
-Use: node ToDo [-c|-r|-u|-d] [dataTask]
-"dataTask" must be a string separated with commas: "title,description,state,user"
-Use: node ToDo to list all tasks`)
-}
-
-function create(task) {
-    console.log(`Creating task ${task}`);
-	setTask(task)
+Use: node ToDo (to list all tasks)
+Use: node ToDo -c "title","description","state","user" (replacing content inside "" with your data)
+Use: node ToDo [-r|-u|-d] X (where X is a number which corresponds with the task in the list)
+`)
 }
 
 function readOneTask(task) {

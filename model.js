@@ -2,14 +2,14 @@ const fs = require('fs');
 
 const TASKS_JSON_PATH = "./tasks.json";
 
-function createFile(){
+(function createFile(){
 	if(!fs.existsSync(TASKS_JSON_PATH)){
 		console.log(`Creating "tasks.json" file`);
-		setTask([]);	
+		saveTasks([]);	
 	}
-}
+})();
 
-function setTask(task){
+function saveTasks(task){
 	fs.writeFileSync(TASKS_JSON_PATH, JSON.stringify(task));
 }
 
@@ -18,4 +18,4 @@ function getTasks(){
     return JSON.parse(data);
 }
 
-module.exports = {createFile, setTask, getTasks}
+module.exports = {saveTasks, getTasks}
