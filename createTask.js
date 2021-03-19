@@ -1,17 +1,17 @@
-const tasca = require('./model');
+const Task = require('./task');
+const getTasks = require('./model').getTasks;
+const setTask = require('./model').setTask;
 
-var tasques = [];
+var tasks = [];
 
-function create(id, title, description, state, start, end, user){
-    tasques.push(new tasca(id, title, description, state, start, end, user));
-    console.log("Tarea creada!");
-    muestra();
+let obj = getTasks();
+
+tasks.push(obj);
+
+function createTask(task){
+    tasks.push(task);
+    setTask(tasks);
+    console.log(`Tarea ${task.id} creada!`);
 }
 
-function muestra(){
-    tasques.forEach(element => {
-        console.log(element);
-    });
-}
-
-module.exports = create;
+module.exports = createTask;
