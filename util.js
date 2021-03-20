@@ -1,7 +1,13 @@
-const task = require('./task');
+const Task = require('./task');
+const getTasks = require('./model').getTasks;
 
-const ID = 0;
-const END = Date.now();
+let obj = getTasks();
+
+const ID = obj.length + 1;
+const date = new Date();
+
+start = date.getDate() + "-"+ date.getMonth()+ "-" + date.getFullYear();
+end = date.getDate() + "-"+ date.getMonth()+ "-" + date.getFullYear();
 
 function parseObj(argument){
     let data=argument.split(",");
@@ -14,7 +20,7 @@ function parseObj(argument){
             return data;
             break;
         case 4:
-            return new task(ID,data[0],data[1],data[2],Date.now(),END,data[3]);
+            return new Task(ID,data[0],data[1],data[2],start,end,data[3]);
             break;
         default:
             return false;
