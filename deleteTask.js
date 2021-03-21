@@ -14,9 +14,9 @@ function deleteTask(searched){
 	if(obj.findIndex(checkId)!=-1){
 		obj.splice(obj.findIndex(checkId),1);
 		setTask(obj);
-		console.log(`La tarea con ID: ${searched} ha sido eliminada.`);
+		console.log(`Task with ID: ${searched} has been deleted.`);
 	}else{
-		console.log(`AVISO: No se encuentra la tarea con ID: ${searched}\nNO se ha eliminado nada` );
+		console.log(`WARNING: Task with ID: ${searched} is NOT found.\nThere were NOT changes in the tasks` );
 	}
 }
 
