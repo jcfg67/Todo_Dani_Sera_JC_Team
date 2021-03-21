@@ -2,10 +2,7 @@ const Task = require('./task');
 const getTasks = require('./model').getTasks;
 const setTask = require('./model').saveTasks;
 
-var tasks = [];
-
 let obj = getTasks();
-
 
 
 function deleteTask(searched){
