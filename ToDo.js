@@ -1,5 +1,9 @@
 const parseObj = require('./util');
 const createTask = require('./createTask');
+const readAllTasks = require('./readAllTasks');
+const readOneTask = require('./readOneTask');
+const deleteTask = require('./deleteTask');
+const updateTask = require('./updateTask');
 
 const command = process.argv[2];
 const argument = process.argv[3];
@@ -12,7 +16,7 @@ switch(command){
 		readOneTask(parseObj(argument));
 		break;
 	case '-u':
-		update(parseObj(argument));
+		updateTask(parseObj(argument));
 		break;
     case '-d':
         deleteTask(parseObj(argument));
@@ -32,23 +36,9 @@ switch(command){
 function help() {
     console.log(`
 Use: node ToDo (to list all tasks)
-Use: node ToDo -c "title","description","state","user" (replacing content inside "" with your data)
+Use: node ToDo -c "title","description","user" (replacing content inside "" with your data)
 Use: node ToDo [-r|-u|-d] X (where X is a number which corresponds with the task in the list)
-`)
-}
-
-function readOneTask(task) {
-    console.log(`Reading task ${task}`);
-}
-
-function update(task) {
-    console.log(`Updating task ${task}`);
-}
-
-function deleteTask(task) {
-    console.log(`Deleting task ${task}`);
-}
-
-function readAllTasks() {
-    console.log(`Reading all tasks!!`);
+There are three possible state values: "To_Do", "Doing" and "Done".
+When creating a new task, the system asigns task state "To_Do"
+When updating, the system upgrades the state`)
 }
