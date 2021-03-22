@@ -1,6 +1,6 @@
 const Task = require('./task');
 const getTasks = require('./model').getTasks;
-const setTask = require('./model').setTask;
+const setTask = require('./model').saveTasks;//[Sera] Cambio .setTask por .saveTasks La primera no existe en el modelo.
 
 var tasks = [];
 
