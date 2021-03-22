@@ -1,6 +1,5 @@
-const Task = require('./task');
 const getTasks = require('./model').getTasks;
-const setTask = require('./model').saveTasks;
+const saveTasks = require('./model').saveTasks;
 
 let obj = getTasks();
 
@@ -13,7 +12,7 @@ function deleteTask(searched){
 	
 	if(obj.findIndex(checkId)!=-1){
 		obj.splice(obj.findIndex(checkId),1);
-		setTask(obj);
+		saveTasks(obj);
 		console.log(`Task with ID: ${searched} has been deleted.`);
 	}else{
 		console.log(`WARNING: Task with ID: ${searched} is NOT found.\nThere were NOT changes in the tasks` );
@@ -21,5 +20,3 @@ function deleteTask(searched){
 }
 
 module.exports = deleteTask;
-
-

@@ -1,12 +1,8 @@
 const getTasks = require('./model').getTasks;
 
-var tasks = [];
+let tasks = getTasks();
 
-obj = getTasks();
-
-tasks.push(obj);
-
-function readAllTasks(){
+function readAllTasks() {
     tasks.forEach(element => {
         console.log(element);
     })
