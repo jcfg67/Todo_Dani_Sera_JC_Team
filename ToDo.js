@@ -1,5 +1,6 @@
 const parseObj = require('./util');
 const createTask = require('./createTask');
+const deleteTask = require('./deleteTask');
 
 const command = process.argv[2];
 const argument = process.argv[3];
@@ -43,10 +44,6 @@ function readOneTask(task) {
 
 function update(task) {
     console.log(`Updating task ${task}`);
-}
-
-function deleteTask(task) {
-    console.log(`Deleting task ${task}`);
 }
 
 function readAllTasks() {

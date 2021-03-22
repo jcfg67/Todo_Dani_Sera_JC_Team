@@ -1,16 +1,12 @@
 const Task = require('./task');
 const getTasks = require('./model').getTasks;
-const setTask = require('./model').saveTasks;//[Sera] Cambio .setTask por .saveTasks La primera no existe en el modelo.
+const saveTasks = require('./model').saveTasks;
 
-var tasks = [];
-
-let obj = getTasks();
-
-tasks.push(obj);
+var tasks = getTasks();
 
 function createTask(task){
     tasks.push(task);
-    setTask(tasks);
+    saveTasks(tasks);
     console.log(`Tarea ${task.id} creada!`);
 }
 
