@@ -2,12 +2,15 @@ const Task = require('./task');
 const getTasks = require('./model').getTasks;
 
 let obj = getTasks();
+let ID=1;
+if(obj.length>=1){
+    ID=obj[obj.length-1].id + 1;
+}
 
-const ID = obj.length + 1;
 const date = new Date();
 
-start = date.getDate() + "-"+ date.getMonth()+ "-" + date.getFullYear();
-end = date.getDate() + "-"+ date.getMonth()+ "-" + date.getFullYear();
+start = date.getDate() + "-"+ date.getMonth()+1 + "-" + date.getFullYear();
+end = "";
 
 function parseObj(argument){
     let data=argument.split(",");

@@ -6,7 +6,7 @@ let tasks = getTasks();
 function createTask(task){
     tasks.push(task);
     saveTasks(tasks);
-    console.log(`Tarea ${task.id} creada!`);
+    console.log(`Task ${task.id} saved!`);
 }
 
 module.exports = createTask;
