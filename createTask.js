@@ -1,4 +1,3 @@
-const Task = require('./task');
 const getTasks = require('./model').getTasks;
 const saveTasks = require('./model').saveTasks;
 

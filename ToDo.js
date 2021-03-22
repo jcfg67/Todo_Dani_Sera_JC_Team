@@ -1,5 +1,6 @@
 const parseObj = require('./util');
 const createTask = require('./createTask');
+const updateTask = require('./updateTask');
 
 const command = process.argv[2];
 const argument = process.argv[3];
@@ -12,7 +13,7 @@ switch(command){
 		readOneTask(parseObj(argument));
 		break;
 	case '-u':
-		update(parseObj(argument));
+		updateTask(parseObj(argument));
 		break;
     case '-d':
         deleteTask(parseObj(argument));
@@ -39,14 +40,6 @@ Use: node ToDo [-r|-u|-d] X (where X is a number which corresponds with the task
 
 function readOneTask(task) {
     console.log(`Reading task ${task}`);
-}
-
-function update(task) {
-    console.log(`Updating task ${task}`);
-}
-
-function deleteTask(task) {
-    console.log(`Deleting task ${task}`);
 }
 
 function readAllTasks() {
