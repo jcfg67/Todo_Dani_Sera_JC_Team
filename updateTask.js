@@ -23,7 +23,7 @@ function updateTask(searched){
 			case 'Doing':
 				console.log(`The task's previous was ${task.state}. Assigning "Done" as state.\n`);
 				task.state="Done";
-				task.end= date.getDate() + "-"+ date.getMonth()+ "-" + date.getFullYear();
+				task.end= date.getDate() + "-"+ parseInt(date.getMonth()+1)+ "-" + date.getFullYear();
 				saveTasks(tasks);
 				break;   
 			case 'Done':
