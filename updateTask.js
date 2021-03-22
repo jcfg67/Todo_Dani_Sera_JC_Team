@@ -4,7 +4,7 @@ const saveTasks = require('./model').saveTasks;
 
 var tasks = getTasks();
 
-function createTask(task){
+function updateTask(searched){
     tasks.push(task);
     saveTasks(tasks);
     console.log(`Tarea ${task.id} creada!`);
