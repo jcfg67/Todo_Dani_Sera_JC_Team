@@ -7,10 +7,6 @@ if(obj.length>=1){
     ID=obj[obj.length-1].id + 1;
 }
 
-const date = new Date();
-
-start = date.getDate() + "-"+ date.getMonth()+1 + "-" + date.getFullYear();
-end = "";
 
 function parseObj(argument){
     let data=argument.split(",");
@@ -23,6 +19,9 @@ function parseObj(argument){
             return data;
             break;
         case 4:
+            const date = new Date();
+            start = date.getDate() + "-"+ parseInt(date.getMonth()+1) + "-" + date.getFullYear();
+            end = "";
             return new Task(ID,data[0],data[1],data[2],start,end,data[3]);
             break;
         default:

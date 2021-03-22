@@ -2,9 +2,10 @@ const getTasks = require('./model').getTasks;
 const saveTasks = require('./model').saveTasks;
 
 var tasks = getTasks();
-const date = new Date();
 
 function updateTask(searched){
+
+	const date = new Date();
     
 	function checkId(element){
 		return element.id==searched;
@@ -23,7 +24,7 @@ function updateTask(searched){
 			case 'Doing':
 				console.log(`The task's previous was ${task.state}. Assigning "Done" as state.\n`);
 				task.state="Done";
-				task.end= date.getDate() + "-"+ date.getMonth()+ "-" + date.getFullYear();
+				task.end= date.getDate() + "-"+ parseInt(date.getMonth()+1)+ "-" + date.getFullYear();
 				saveTasks(tasks);
 				break;   
 			case 'Done':
