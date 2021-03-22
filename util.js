@@ -18,11 +18,11 @@ function parseObj(argument){
         case 2:
             return data;
             break;
-        case 4:
+        case 3:
             const date = new Date();
             start = date.getDate() + "-"+ parseInt(date.getMonth()+1) + "-" + date.getFullYear();
             end = "";
-            return new Task(ID,data[0],data[1],data[2],start,end,data[3]);
+            return new Task(ID,data[0],data[1],"To_Do",start,end,data[2]);
             break;
         default:
             return false;
