@@ -1,5 +1,4 @@
-# Todo Project
-***
-Proyecto Todo Dani_Sera_JC.
+# ToDo app
 
-[Sera] Tocando el README del master desde local.
+To run: node ToDo help
+
