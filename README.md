@@ -1,5 +1,4 @@
-Repo created with master and develop.
+# ToDo app
 
-[Sera] Toco el readme de develop desde local.
+To run: node ToDo help
 
-<h2>Indice</h2>
