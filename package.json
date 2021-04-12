@@ -1,0 +1,16 @@
+{
+  "name": "ToDo CLI Interactive",
+  "version": "1.0.0",
+  "description": "To run: node ToDo help",
+  "main": "ToDo.js",
+  "scripts": {
+    "start": "node ToDo.js",
+    "dev": "nodemon ToDo.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  }
+}
