@@ -1,44 +1,20 @@
-const parseObj = require('./util');
-const createTask = require('./createTask');
-const readAllTasks = require('./readAllTasks');
-const readOneTask = require('./readOneTask');
-const deleteTask = require('./deleteTask');
-const updateTask = require('./updateTask');
+const createTask = require('./services/createTask');
+const readAllTasks = require('./services/readAllTasks');
+const readOneTask = require('./services/readOneTask');
+const deleteTask = require('./services/deleteTask');
+const updateTask = require('./services/updateTask');
+const { askMenuOption } = require('./controllers/inquirer');
 
-const command = process.argv[2];
-const argument = process.argv[3];
+menu();
 
-switch(command){
-	case '-c':
-		createTask(parseObj(argument));
-		break;
-	case '-r':
-		readOneTask(parseObj(argument));
-		break;
-	case '-u':
-		updateTask(parseObj(argument));
-		break;
-    case '-d':
-        deleteTask(parseObj(argument));
-        break;
-	case 'help':
-		help();
-		break;
-	case undefined:
-		readAllTasks();
-		break;
-	default:
-		console.log(`Command not found!! 'node ToDo help' to list available commands`);
-		help();
-		break;
-}
-
-function help() {
-    console.log(`
-Use: node ToDo (to list all tasks)
-Use: node ToDo -c "title","description","user" (replacing content inside "" with your data)
-Use: node ToDo [-r|-u|-d] X (where X is a number which corresponds with the task in the list)
-There are three possible state values: "To_Do", "Doing" and "Done".
-When creating a new task, the system assigns task state "To_Do"
-When updating, the system upgrades the state`)
+async function menu() {
+	while (true) {
+		const answers = await askMenuOption();
+		if (answers.option == "Create") await createTask();
+		if (answers.option == "Read All") readAllTasks();
+		if (answers.option == "Read One") await readOneTask();
+		if (answers.option=="Update") await updateTask();
+		if (answers.option=="Delete") await deleteTask();
+		if (answers.option=="Exit") process.exit();
+	}
 }

@@ -1,4 +1,4 @@
 # ToDo app
 
-To run: node ToDo help
+To run: node ToDo
 
